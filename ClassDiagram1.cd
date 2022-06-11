@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Course_Student_Registration_System.AdminInterface" Collapsed="true">
+    <Position X="2.5" Y="0.75" Width="1.5" />
+    <AssociationLine Name="reporting1" Type="Course_Student_Registration_System.reporting1">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.077" Y="-0.067" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>CAAMCAEBBCgAwBIIABCRAACCAAQAAEDAQBACAgAAAAI=</HashCode>
+      <FileName>AdminInterface.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CourseCreation1" />
+      <Property Name="Reporting2" />
+      <Property Name="reporting1" />
+      <Property Name="Reporting3" />
+      <Property Name="Reporting4" />
+      <Property Name="PaymentReport" />
+      <Property Name="OpenACourse" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Course_Student_Registration_System.AdminLogIn" Collapsed="true">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAEAAICAEBBAAAAKCAAICAAAAAEAAAAAgAAEAAAA=</HashCode>
+      <FileName>AdminLogIn.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="AdminInterface" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Course_Student_Registration_System.AssignACourse">
+    <Position X="10.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAEAABACAAMBBAAACABAECAAIAABIAADAAAAACACA=</HashCode>
+      <FileName>AssignACourse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_Student_Registration_System.CourseCreation" Collapsed="true">
+    <Position X="0.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>FYCg4G0lICpgBDAIgAOQABMaAAgAAAAQAqAihCAAVgc=</HashCode>
+      <FileName>CourseCreation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_Student_Registration_System.Instructor_Registration" Collapsed="true">
+    <Position X="10.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>/wCgIH2hYToCRJYIgACIAAMahQggBKAAxyAigCkKQDE=</HashCode>
+      <FileName>Instructor Registration.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="InstructorNumber" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Course_Student_Registration_System.InstructorNumber">
+    <Position X="10.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIQACAAABAAACCAAAACAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>InstructorNumber.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_Student_Registration_System.OpenACourse" Collapsed="true">
+    <Position X="0.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>jwAEEAABACAAARBQAACBBAAjAAAEAAIAAHgCAAAAABI=</HashCode>
+      <FileName>OpenACourse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_Student_Registration_System.PaymentReport">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAIAIBACAAABAAAACAAQACIAAAAAAAAIAAEAACAgA=</HashCode>
+      <FileName>PaymentReport.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_Student_Registration_System.reporting1" Collapsed="true">
+    <Position X="4.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgIgABACAAABAAAACAAQACAAABAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>reporting1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_Student_Registration_System.Reporting2" Collapsed="true">
+    <Position X="4.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAMAABACAAABAAAACAAQACAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Reporting2.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_Student_Registration_System.Reporting3">
+    <Position X="4.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAABACAAABAAAAiAAQACAIAAAAAQAAAAAAAAgAA=</HashCode>
+      <FileName>Reporting3.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_Student_Registration_System.Reporting4">
+    <Position X="4.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQEBADEEAhMAAAiEAAACECAABCAQQEACAQAAAAA=</HashCode>
+      <FileName>Reporting4.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_Student_Registration_System.StudentNumber">
+    <Position X="6.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAACAAABAAAACAAAACAAAAEAAAAAAAAAAgIAA=</HashCode>
+      <FileName>StudentNumber.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_Student_Registration_System.StudentPayment">
+    <Position X="6.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAEABICIABBwAAACAAAAiAAAAABABAAAgABAAAAA=</HashCode>
+      <FileName>StudentPayment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_Student_Registration_System.StudentRegistration" Collapsed="true">
+    <Position X="6.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>9QikKL8lECASgDBIAQCAAAMaAAgAAIAghjYCwAAiRIU=</HashCode>
+      <FileName>StudentRegistration.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="StudentNumber" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Course_Student_Registration_System.UserInterface" Collapsed="true">
+    <Position X="8.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAEAQEDgKAAQBkIADCBAAICCQBAAQAQQAACAARAAAA=</HashCode>
+      <FileName>UserInterface.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="StudentPayment" />
+      <Property Name="StudentRegistration" />
+      <Property Name="Instructor_Registration" />
+      <Property Name="AdminLogIn" />
+      <Property Name="AssignACourse" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
