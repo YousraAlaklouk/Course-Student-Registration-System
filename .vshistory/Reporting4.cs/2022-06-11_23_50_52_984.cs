@@ -25,15 +25,11 @@ namespace Course_Student_Registration_System
         DataTable Instructors;
         DataTable Courses;
 
-        // students radio button
+
         private void radioStu_CheckedChanged(object sender, EventArgs e)
         {
             if (radioStu.Checked)
             {
-                try
-                {
-                    // fill data grid view
-
                 connection.Open();
 
 
@@ -47,33 +43,20 @@ namespace Course_Student_Registration_System
                 gridRep.DataSource = bSource;
                 sda.Update(Students);
 
-                txtStu.Visible = true;
-            } catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
                 connection.Close();
-
+                txtStu.Visible = true;
             }
-        }
             else
             {
                 txtStu.Visible = false;
             }
         }
-        // instructor radio button
+
         private void radioInst_CheckedChanged(object sender, EventArgs e)
         {
             if (radioInst.Checked)
             {
-                try
-                {
-                    // fill data grid view
-
-
-                    connection.Open();
+                connection.Open();
                 SqlCommand cm = new SqlCommand("SELECT * FROM Instructors ", connection);
 
                 SqlDataAdapter sda = new SqlDataAdapter();
@@ -84,33 +67,21 @@ namespace Course_Student_Registration_System
                 bSource.DataSource = Instructors;
                 gridRep.DataSource = bSource;
                 sda.Update(Instructors);
-                txtInst.Visible = true;
-            } catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
                 connection.Close();
+                txtInst.Visible = true;
 
             }
-
-        }
             else
             {
                 txtInst.Visible = false;
             }
         }
-        // course radio button
+
         private void radioCrs_CheckedChanged(object sender, EventArgs e)
         {
             if (radioCrs.Checked)
             {
-                try
-                {
-                    // fill data grid view
-
-                    txtCrs.Visible = true;
+                txtCrs.Visible = true;
                 connection.Open();
                 SqlCommand cm = new SqlCommand("SELECT * FROM Courses ", connection);
                 SqlDataAdapter sda = new SqlDataAdapter();
@@ -121,33 +92,20 @@ namespace Course_Student_Registration_System
                 bSource.DataSource = Courses;
                 gridRep.DataSource = bSource;
                 sda.Update(Courses);
-            } catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
                 connection.Close();
 
             }
-
-        }
             else
             {
                 txtCrs.Visible = false;
             }
         }
-        // course specific date radio button
+
         private void radioCrsDat_CheckedChanged(object sender, EventArgs e)
         {
             if (radioCrsDat.Checked)
             {
-                try
-                {
-                    // fill data grid view
-
-
-                    txtCrsDat.Visible = true;
+                txtCrsDat.Visible = true;
                 connection.Open();
                 SqlCommand cm = new SqlCommand("SELECT * FROM Courses ", connection);
                 SqlDataAdapter sda = new SqlDataAdapter();
@@ -158,15 +116,7 @@ namespace Course_Student_Registration_System
                 bSource.DataSource = Courses;
                 gridRep.DataSource = bSource;
                 sda.Update(Courses);
-                } catch(Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-                finally
-                {
-                    connection.Close();
-
-                }
+                connection.Close();
 
             }
             else
@@ -186,7 +136,7 @@ namespace Course_Student_Registration_System
 
 
         }
-        //reset button
+
         private void reloadbut_Click(object sender, EventArgs e)
         {
             ////////
@@ -208,8 +158,7 @@ namespace Course_Student_Registration_System
 
                 try
                 {
-                    // fill data grid view according to the date
-
+                    //THE COMMAND IS WRONG
 
                     connection.Open();
                     SqlDataAdapter cmd = new SqlDataAdapter("SELECT COUNT(*) FROM Students WHERE DATE BETWEEN '" + txtStu.Text + "' AND GETDATE()", connection);
@@ -237,9 +186,9 @@ namespace Course_Student_Registration_System
             {
                 try
                 {
-                    // fill data grid view according to the date
 
                     connection.Open();
+                    //THE COMMAND IS WRONG
                     SqlDataAdapter cmd = new SqlDataAdapter("SELECT COUNT(*) FROM Instructors WHERE DATE BETWEEN '" + txtInst.Text + "' AND GETDATE()", connection);
 
 
@@ -266,7 +215,7 @@ namespace Course_Student_Registration_System
             {
                 try
                 {
-                    // fill data grid view according to the date
+                    //THE COMMAND IS WRONG
 
                     connection.Open();
                     SqlDataAdapter cmd = new SqlDataAdapter("SELECT COUNT(*) FROM Courses WHERE DATE BETWEEN '" + txtCrs.Text + "' AND GETDATE()", connection);
@@ -296,7 +245,6 @@ namespace Course_Student_Registration_System
             {
                 try
                 {
-                    // fill data grid view according to the date
 
                     connection.Open();
                     SqlDataAdapter cmd = new SqlDataAdapter("SELECT  COUNT(*) FROM Courses WHERE DATE = '" + txtCrsDat.Text + "'", connection);

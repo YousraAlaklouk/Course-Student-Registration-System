@@ -16,7 +16,6 @@ namespace Course_Student_Registration_System
 {
     public partial class StudentRegistration : Form
     {
-        //connect to the database 
         SqlConnection connection = new SqlConnection("Data Source=DESKTOP-CNJT2HB\\SQLEXPRESS;Initial Catalog=Course Student Registration System;Integrated Security=True");
         public StudentRegistration()
         {
@@ -26,8 +25,6 @@ namespace Course_Student_Registration_System
         // fill faculty combo box from database
         private void StudentRegistration_Load_1(object sender, EventArgs e)
         {
-            txtName.Focus();
-
             try
             {
                 connection.Open();
@@ -45,10 +42,11 @@ namespace Course_Student_Registration_System
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message)
             }
             finally
             {
+                txtName.Focus();
                 connection.Close();
             }
 
@@ -75,7 +73,7 @@ namespace Course_Student_Registration_System
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message)
             }
             finally
             {
@@ -98,16 +96,8 @@ namespace Course_Student_Registration_System
                     SqlCommand cmd = new SqlCommand("INSERT INTO Students VALUES(@name, @surname,@middle ,@sex,@birtdate ,@age ,@phone,@email,@address,@faculty,@dep, @Wallet , GETDATE())", connection);
                     cmd.Parameters.AddWithValue("@name", txtName.Text.Trim());
                     cmd.Parameters.AddWithValue("@surname", txtSur.Text.Trim());
-                    if (txtMi.Text.Length > 0) {
-                        cmd.Parameters.AddWithValue("@middle", txtMi.Text.Trim());
-
-                    }
-                    else
-                    {
-                        cmd.Parameters.AddWithValue("@middle", DBNull.Value);
-
-                    }
-                    if ( radioFemal.Checked)
+                    cmd.Parameters.AddWithValue("@middle", txtMi.Text.Trim());
+                    if( radioFemal.Checked)
                     {
                         cmd.Parameters.AddWithValue("sex", female);
 

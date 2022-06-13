@@ -16,52 +16,40 @@ namespace Course_Student_Registration_System
 {
     public partial class StudentRegistration : Form
     {
-        //connect to the database 
         SqlConnection connection = new SqlConnection("Data Source=DESKTOP-CNJT2HB\\SQLEXPRESS;Initial Catalog=Course Student Registration System;Integrated Security=True");
         public StudentRegistration()
         {
             InitializeComponent();
         }
 
-        // fill faculty combo box from database
+
         private void StudentRegistration_Load_1(object sender, EventArgs e)
         {
             txtName.Focus();
 
-            try
-            {
-                connection.Open();
+            connection.Open();
 
-                SqlCommand sc = new SqlCommand("SELECT FaculityName , FaculityId  FROM Faculities", connection);
-                SqlDataAdapter adapter = new SqlDataAdapter(sc);
-                adapter.SelectCommand = sc;
-                DataTable Faculity = new DataTable();
-                adapter.Fill(Faculity);
-                comboFacu.DataSource = Faculity;
-                comboFacu.DisplayMember = "FaculityName";
-                comboFacu.ValueMember = "FaculityID";
-                comboFacu.SelectedIndex = -1;
-                comboFacu.SelectedValueChanged += ComboFacu_SelectedValueChanged;
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                connection.Close();
-            }
+            SqlCommand sc = new SqlCommand("SELECT FaculityName , FaculityId  FROM Faculities", connection);
+            SqlDataAdapter adapter = new SqlDataAdapter(sc);
+            adapter.SelectCommand = sc;
+            DataTable Faculity = new DataTable();
+            adapter.Fill(Faculity);
+            comboFacu.DataSource = Faculity;
+            comboFacu.DisplayMember = "FaculityName";
+            comboFacu.ValueMember = "FaculityID";
+            comboFacu.SelectedIndex = -1;
+            comboFacu.SelectedValueChanged += ComboFacu_SelectedValueChanged;
 
+            connection.Close();
 
         }
 
-        // fill department combobox according to the faculty from database
+
         private void ComboFacu_SelectedValueChanged(object? sender, EventArgs e)
         {
-            try
-            {
-                connection.Open();
-                SqlCommand cmd = new SqlCommand("SELECT Department , DepartmentID FROM Department WHERE FacultyID = @ID ", connection);
+            connection.Open();
+
+            SqlCommand cmd = new SqlCommand("SELECT Department , DepartmentID FROM Department WHERE FacultyID = @ID ", connection);
             cmd.Parameters.AddWithValue("@ID", comboFacu.SelectedValue);
 
             SqlDataAdapter adapter2 = new SqlDataAdapter(cmd);
@@ -72,18 +60,9 @@ namespace Course_Student_Registration_System
             comboDep.DisplayMember = "Department";
             comboDep.ValueMember = "DepartmentID";
             comboDep.SelectedIndex = -1;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                connection.Close();
-            }
 
+            connection.Close();
         }
-        //submit button
         private void subBut_Click(object sender, EventArgs e)
         {
             string female = "Female";
@@ -98,16 +77,8 @@ namespace Course_Student_Registration_System
                     SqlCommand cmd = new SqlCommand("INSERT INTO Students VALUES(@name, @surname,@middle ,@sex,@birtdate ,@age ,@phone,@email,@address,@faculty,@dep, @Wallet , GETDATE())", connection);
                     cmd.Parameters.AddWithValue("@name", txtName.Text.Trim());
                     cmd.Parameters.AddWithValue("@surname", txtSur.Text.Trim());
-                    if (txtMi.Text.Length > 0) {
-                        cmd.Parameters.AddWithValue("@middle", txtMi.Text.Trim());
-
-                    }
-                    else
-                    {
-                        cmd.Parameters.AddWithValue("@middle", DBNull.Value);
-
-                    }
-                    if ( radioFemal.Checked)
+                    cmd.Parameters.AddWithValue("@middle", txtMi.Text.Trim());
+                    if( radioFemal.Checked)
                     {
                         cmd.Parameters.AddWithValue("sex", female);
 
@@ -149,7 +120,7 @@ namespace Course_Student_Registration_System
             }
 
         }
-        //cancel button
+
         private void caclBut_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Cancelled", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -157,13 +128,8 @@ namespace Course_Student_Registration_System
 
 
         }
-        //reset button
+
         private void resBut_Click(object sender, EventArgs e)
-        {
-            clear();
-        }
-        // clear method
-        private void clear()
         {
             txtAge.Clear();
             txtEmail.Clear();
@@ -178,7 +144,6 @@ namespace Course_Student_Registration_System
             radioFemal.Checked = true;
         }
 
-        // from the menue strip tp show the middle name
         private void showMiddleNameBoxToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (showMiddleNameBoxToolStripMenuItem.Checked == false)
@@ -193,7 +158,6 @@ namespace Course_Student_Registration_System
             }
         }
 
-        //close from menu strip
         private void closeToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -203,20 +167,19 @@ namespace Course_Student_Registration_System
         {
             Application.Exit();
         }
-        // from menu strip 
 
         private void goToAssignACourseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form Form1 = new AssignACourse();
             Form1.ShowDialog();
         }
-        //new from menu strip
+
         private void newFormToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form Form1 = new StudentRegistration();
             Form1.ShowDialog();
         }
-        // combo box from menu strip 
+
         private void toolStripComboBox1_Click(object sender, EventArgs e)
         {
             if (toolStripComboBox1.SelectedIndex == 0)
